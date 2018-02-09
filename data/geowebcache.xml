@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gwcConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:noNamespaceSchemaLocation="http://geowebcache.org/schema/1.12.0/geowebcache.xsd"
+                  xmlns="http://geowebcache.org/schema/1.12.0">
+    <version>1.12.0</version>
+    <backendTimeout>120</backendTimeout>
+    <blobStores>
+        <MbtilesBlobStore default="true">
+            <id>mbtiles-store</id>
+            <enabled>true</enabled>
+            <rootDirectory>/geowebcache</rootDirectory>
+            <templatePath>planet_lvl_8.mbtiles</templatePath>
+            <rowRangeCount>250</rowRangeCount>
+            <columnRangeCount>250</columnRangeCount>
+            <poolSize>1000</poolSize>
+            <poolReaperIntervalMs>500</poolReaperIntervalMs>
+            <eagerDelete>false</eagerDelete>
+            <useCreateTime>true</useCreateTime>
+            <executorConcurrency>5</executorConcurrency>
+            <mbtilesMetadataDirectory>/geowebcache/layersMetadata</mbtilesMetadataDirectory>
+            <gzipVector>true</gzipVector>
+        </MbtilesBlobStore>
+    </blobStores>
+    <layers>
+        <wmsLayer>
+            <name>OpenMapTiles</name>
+            <blobStoreId>mbtiles-store</blobStoreId>
+            <mimeFormats>
+                <string>application/x-protobuf;type=mapbox-vector</string>
+            </mimeFormats>
+            <gridSubsets> <!-- Use two of the predefined gridsets -->
+                <gridSubset>
+                    <gridSetName>EPSG:900913</gridSetName>
+                </gridSubset>
+            </gridSubsets>
+            <wmsUrl>
+                <string>http://localhost:404/</string>
+            </wmsUrl>
+        </wmsLayer>
+    </layers>
+</gwcConfiguration>

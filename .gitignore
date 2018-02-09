@@ -1,0 +1,8 @@
+apache-tomcat-8.5.15.tar.gz
+data/*.sqlite
+data/*.mbtiles
+data/diskquota_page_store
+geowebcache.war
+.DS_Store
+.idea
+.iml
